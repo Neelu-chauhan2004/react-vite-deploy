@@ -1,0 +1,61 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components{
+    .btn-primary{
+        @apply bg-primaryGreen text-white hover:bg-primaryGreen/80 duration-300 rounded-lg py-2 px-4;
+    }
+
+}
+@keyframes slide {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-slide {
+  animation: slide 20s linear infinite;
+}
+/* Smooth sliding animation */
+.tape-slider .slick-track {
+  display: flex;
+  transition-timing-function: linear !important;
+}
+
+/* Slider item styling */
+.tape-slider .slick-slide {
+  padding: 0 10px;
+  transition: transform 0.5s ease;
+}
+
+/* Slow down the animation */
+.tape-slider .slick-slide {
+  transition: all 500ms ease;
+}
+
+/* Optional: Add a subtle gradient fade at edges */
+.tape-slider::before, 
+.tape-slider::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  width: 50px;
+  height: 100%;
+  z-index: 2;
+}
+.tape-slider::before {
+  left: 0;
+  background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%);
+}
+.tape-slider::after {
+  right: 0;
+  background: linear-gradient(270deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%);
+}
+.dark .tape-slider::before,
+.dark .tape-slider::after {
+  background: linear-gradient(90deg, rgba(17,24,39,1) 0%, rgba(17,24,39,0) 100%);
+}
